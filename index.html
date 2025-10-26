@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magyar Digitalizációs Program - Weboldal minden vállalkozásnak</title>
+    <meta name="description" content="Professzionális weboldal 150.000 Ft-tól. Modern online jelenlét kisvállalkozásoknak, egyéni vállalkozóknak és helyi szolgáltatóknak.">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    <!-- End Google Tag Manager -->
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --hungary-red: #CD2A3E;
+            --hungary-green: #436F4D;
+            --dark: #0a1929;
+            --dark-surface: #132f4c;
+            --primary: #1a472a;
+            --accent: #CD2A3E;
+            --text: #1a1a1a;
+            --text-light: #64748b;
+            --gold: #C5A572;
+            --border: #e2e8f0;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+        }
+        
+        body {
+    border-top: 6px solid transparent;
+    background-image: linear-gradient(to right, #CD2A3E, #fff, #436F4D);
+    background-origin: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            overflow-x: hidden;
+            background: var(--bg);
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        
+        /* Hungarian Flag Strip */
+        .flag-strip {
+            height: 4px;
+            background: linear-gradient(to right, 
+                var(--hungary-red) 0%, 
+                var(--hungary-red) 33.33%, 
+                #fff 33.33%, 
+                #fff 66.66%, 
+                var(--hungary-green) 66.66%, 
+                var(--hungary-green) 100%);
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--dark);
+            letter-spacing: -0.3px;
+        }
+        
+        .logo-emblem {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--hungary-red) 0%, #9e1f2f 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(205, 42, 62, 0.25);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(165deg, var(--dark) 0%, var(--dark-surface) 100%);
+            color: #ffffff;
+            padding: 80px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 30% 50%, rgba(205, 42, 62, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(67, 111, 77, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(30deg, rgba(255,255,255,0.02) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.02) 87.5%, rgba(255,255,255,0.02)),
+                linear-gradient(150deg, rgba(255,255,255,0.02) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.02) 87.5%, rgba(255,255,255,0.02));
+            background-size: 80px 140px;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .program-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(197, 165, 114, 0.15);
+            color: var(--gold);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 12px;
+            margin-bottom: 28px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: 1px solid rgba(197, 165, 114, 0.25);
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            line-height: 1.15;
+            color: #ffffff;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 36px;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: #ffffff;
+            padding: 16px 40px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 14px rgba(205, 42, 62, 0.35);
+        }
+        
+        .cta-button:hover {
+            background: #b8222f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(205, 42, 62, 0.4);
+        }
+        
+        /* Info Banner */
+        .info-banner {
+            background: linear-gradient(90deg, var(--accent) 0%, #b8222f 100%);
+            color: white;
+            padding: 14px 0;
+            text-align: center;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.3px;
+        }
+        
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+        
+        section.alt-bg {
+            background: var(--bg-alt);
+        }
+        
+        h2 {
+            font-size: 42px;
+            margin-bottom: 12px;
+            color: var(--dark);
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 64px;
+            font-weight: 400;
+        }
+        
+        .section-intro {
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto 64px;
+            font-size: 18px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        
+        h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: var(--dark);
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+        
+        /* Stats */
+        .stats-section {
+            background: #ffffff;
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 48px;
+            text-align: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .stat-item {
+            padding: 24px;
+        }
+        
+        .stat-number {
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 15px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        /* Pricing */
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+            margin-top: 64px;
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .price-card {
+            background: #ffffff;
+            padding: 48px 36px;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--hungary-green));
+        }
+        
+        .price-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+            border-color: rgba(205, 42, 62, 0.2);
+        }
+        
+        .price {
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 28px 0 8px;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+        
+        .price span {
+            font-size: 20px;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+        
+        .price-label {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+        
+        /* Features */
+        .features-list {
+            list-style: none;
+            margin: 32px 0 0;
+            text-align: left;
+        }
+        
+        .features-list li {
+            padding: 14px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 15px;
+            color: var(--text);
+            display: flex;
+            align-items: start;
+            gap: 12px;
+        }
+        
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .features-list li:before {
+            content: "✓";
+            color: var(--hungary-green);
+            font-weight: bold;
+            font-size: 16px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        /* Templates */
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 64px;
+        }
+        
+        .template-item {
+            background: #ffffff;
+            padding: 32px 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .template-item:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+            border-color: rgba(205, 42, 62, 0.2);
+        }
+        
+        .template-item h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        
+        .template-item p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        /* Process */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
+            margin-top: 64px;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 0 16px;
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 68px;
+            height: 68px;
+            background: linear-gradient(135deg, var(--accent), #b8222f);
+            color: #ffffff;
+            border-radius: 14px;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(205, 42, 62, 0.25);
+        }
+        
+        .step h3 {
+            margin-bottom: 12px;
+            font-size: 19px;
+            color: var(--dark);
+        }
+        
+        .step p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        /* Download Form */
+        .download-section {
+            background: linear-gradient(165deg, var(--dark) 0%, var(--dark-surface) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 30% 50%, rgba(205, 42, 62, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(67, 111, 77, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .download-section h2 {
+            color: #ffffff;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .download-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .download-form {
+            max-width: 580px;
+            margin: 48px auto 0;
+            background: #ffffff;
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .form-intro {
+            text-align: center;
+            margin-bottom: 32px;
+            color: var(--text-light);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 14px;
+            letter-spacing: 0.2px;
+        }
+        
+        input[type="email"] {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.2s;
+            font-family: inherit;
+            color: var(--text);
+            background: #ffffff;
+        }
+        
+        input[type="email"]:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(205, 42, 62, 0.1);
+        }
+
+        input[type="text"]:focus,
+        input[type="tel"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(205, 42, 62, 0.1);
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.2s;
+            font-family: inherit;
+            color: var(--text);
+            background: #ffffff;
+            resize: vertical;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: start;
+            gap: 12px;
+        }
+        
+        input[type="checkbox"] {
+            margin-top: 3px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--accent);
+        }
+        
+        .checkbox-group label {
+            margin: 0;
+            font-weight: 400;
+            color: var(--text);
+            font-size: 14px;
+        }
+        
+        /* Info Box */
+        .info-box {
+            text-align: center;
+            margin-top: 64px;
+            padding: 36px 48px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border: 1px solid var(--border);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .info-box p {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        /* FAQ */
+        .faq-container {
+            max-width: 920px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: #ffffff;
+            padding: 36px 40px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .faq-item h3 {
+            margin-bottom: 16px;
+            font-size: 20px;
+            color: var(--dark);
+        }
+        
+        .faq-item p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 60px 0 32px;
+        }
+        
+        .footer-emblem {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 20px;
+            background: var(--gold);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 22px;
+            box-shadow: 0 4px 16px rgba(197, 165, 114, 0.3);
+        }
+        
+        footer p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        footer a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* Cookie Consent */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            color: var(--text);
+            padding: 24px;
+            box-shadow: 0 -4px 24px rgba(0,0,0,0.15);
+            z-index: 1000;
+            display: none;
+            border-top: 2px solid var(--accent);
+        }
+        
+        .cookie-consent.show {
+            display: block;
+        }
+        
+        .cookie-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 32px;
+        }
+        
+        .cookie-content p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text);
+        }
+        
+        .cookie-buttons {
+            display: flex;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+        
+        .cookie-button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        
+        .cookie-button:hover {
+            transform: translateY(-1px);
+        }
+        
+        .accept-btn {
+            background: var(--accent);
+            color: #ffffff;
+        }
+        
+        .decline-btn {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 60px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 38px;
+                letter-spacing: -1px;
+            }
+            
+            .hero p {
+                font-size: 17px;
+            }
+            
+            h2 {
+                font-size: 32px;
+            }
+            
+            section {
+                padding: 64px 0;
+            }
+            
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                font-size: 15px;
+            }
+            
+            .pricing-cards {
+                gap: 20px;
+            }
+            
+            .stats-grid {
+                gap: 32px;
+            }
+            
+            .download-form {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Hungarian Flag Strip -->
+    <div class="flag-strip"></div>
+
+    <!-- Cookie Consent -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-content">
+            <p>Ez a weboldal sütiket használ a felhasználói élmény javítása és a weboldal teljesítményének mérése érdekében. Az oldal használatával Ön elfogadja a sütik használatát.</p>
+            <div class="cookie-buttons">
+                <button class="cookie-button accept-btn" onclick="acceptCookies()">Elfogadom</button>
+                <button class="cookie-button decline-btn" onclick="declineCookies()">Elutasítom</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-emblem">MDP</div>
+                    <span>Magyar Digitalizációs Program</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#celja">Céljaink</a></li>
+                    <li><a href="#arak">Árak</a></li>
+                    <li><a href="#sablonok">Sablonok</a></li>
+                    <li><a href="#kapcsolat">Kapcsolat</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Info Banner -->
+    <div class="info-banner">
+        🇭🇺 Támogatjuk a magyar kisvállalkozások digitális fejlődését
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="container">
+                <div class="program-badge">🏛️ NEMZETI DIGITALIZÁCIÓS PROGRAM</div>
+                <h1>Weboldal minden vállalkozásnak,<br>elérhető áron</h1>
+                <p>Professzionális online jelenlét kisvállalkozásoknak és egyéni vállalkozóknak. Egyszerűen, gyorsan, megbízhatóan.</p>
+                <a href="#letoltes" class="cta-button">Töltse le kínálatunkat</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Céljaink -->
+    <section id="celja" class="alt-bg">
+        <div class="container">
+            <h2>A Magyar Digitalizációs Program célja</h2>
+            <p class="section-subtitle"></p>
+            <p class="section-intro">
+                Minden magyar vállalkozás számára elérhetővé tegyük a modern online jelenlétet. Egy weboldal ma már nem luxus, hanem alapvető üzleti szükséglet – olyan, mint egy digitális kirakat, amely nap 24 órájában nyitva áll az érdeklődők előtt.
+            </p>
+            <p class="section-intro">
+                Szolgáltatásunk kifejezetten kisvállalkozásoknak, egyéni vállalkozóknak és helyi szolgáltatóknak szól, akik szeretnének professzionálisan megjelenni az interneten – felesleges költségek és bonyolult rendszerek nélkül.
+            </p>
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="#letoltes" class="cta-button">Töltse le kínálatunkat</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Árak -->
+    <section id="arak">
+        <div class="container">
+            <h2>Átlátható, megfizethető árképzés</h2>
+            <p class="section-subtitle"></p>
+            <div class="pricing-cards">
+                <div class="price-card">
+                    <h3>Weboldal Fejlesztés</h3>
+                    <div class="price">150.000 <span>Ft</span></div>
+                    <p class="price-label">Egyszeri beruházás</p>
+                    <ul class="features-list">
+                        <li>Teljes fejlesztés</li>
+                        <li>Professzionális szövegírás</li>
+                        <li>Komplett beállítás</li>
+                        <li>1-2 oldalas weboldal</li>
+                        <li>Mobilbarát dizájn</li>
+                        <li>HTML-alapú, gyors megoldás</li>
+                    </ul>
+                </div>
+                <div class="price-card">
+                    <h3>Havi Szolgáltatás</h3>
+                    <div class="price">30.000 <span>Ft/hó</span></div>
+                    <p class="price-label">Folyamatos gondoskodás</p>
+                    <ul class="features-list">
+                        <li>Rendszeres biztonsági mentés</li>
+                        <li>Alapfunkciók és pluginek frissítése</li>
+                        <li>Szerver és biztonsági karbantartás</li>
+                        <li>Folyamatos üzemelés biztosítása</li>
+                        <li>Gyors reagálású ügyfélszolgálat</li>
+                        <li>Hibaelhárítás és támogatás</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="#kapcsolat" class="cta-button">Kapcsolat</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Letöltés -->
+    <section id="letoltes" class="download-section">
+        <div class="container">
+            <h2>Töltse le az elérhető weboldal kínálatot</h2>
+            <p class="section-subtitle">Iparágakra szabott weboldal sablonok</p>
+            <div class="download-form">
+                <p class="form-intro">
+                    Ajánlatunkban iparágakra szabott weboldalak találhatóak, amik előnézetként szolgálnak az Ön vállalkozásának weboldalához. Válassza ki és rendelje meg az Önnek leginkább tetszőt!
+                </p>
+                <form id="downloadForm" onsubmit="handleDownload(event)">
+                    <div class="form-group">
+                        <label for="email">E-mail cím *</label>
+                        <input type="email" id="email" name="email" required placeholder="pelda@email.hu">
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">Az adatkezelési nyilatkozatot elfogadom.</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">Letöltöm</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sablonok -->
+    <section id="sablonok" class="alt-bg">
+        <div class="container">
+            <h2>Milyen típusú weboldalak érhetők el?</h2>
+            <p class="section-subtitle"></p>
+            <div class="templates-grid">
+                <div class="template-item">
+                    <h3>Klasszikus</h3>
+                    <p>Időtálló megjelenés</p>
+                </div>
+                <div class="template-item">
+                    <h3>Klasszikus elegáns</h3>
+                    <p>Kifinomult stílus</p>
+                </div>
+                <div class="template-item">
+                    <h3>Klasszikus modern</h3>
+                    <p>Kortárs dizájn</p>
+                </div>
+                <div class="template-item">
+                    <h3>Minimalista</h3>
+                    <p>Letisztult, egyszerű</p>
+                </div>
+                <div class="template-item">
+                    <h3>Természetes / zöld</h3>
+                    <p>Organikus hangulat</p>
+                </div>
+                <div class="template-item">
+                    <h3>Vagány / fiatalos</h3>
+                    <p>Dinamikus, friss</p>
+                </div>
+                <div class="template-item">
+                    <h3>Luxus megjelenésű</h3>
+                    <p>Prémium kvalitás</p>
+                </div>
+                <div class="template-item">
+                    <h3>Sötét tónusú / exkluzív</h3>
+                    <p>Elegáns, egyedi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Folyamat -->
+    <section>
+        <div class="container">
+            <h2>Hogyan zajlik a weboldal elkészítése?</h2>
+            <p class="section-subtitle"></p>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Kapcsolatfelvétel</h3>
+                    <p>Ön felveszi velünk a kapcsolatot az űrlapon vagy e-mailben.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Kérdőív kitöltése</h3>
+                    <p>Küldünk egy rövid kérdőívet, amely segít megismerni vállalkozását, szolgáltatásait, képeit és szlogenjeit.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Tartalomkészítés és fejlesztés</h3>
+                    <p>Mi megírjuk a weboldal szövegét, majd lefejlesztjük és optimalizáljuk a weboldalt.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Átadás és publikálás</h3>
+                    <p>Ön jóváhagyja a látványt, mi pedig élesítjük a weboldalt.</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <p>⏱️ Átfutási idő: 10-15 munkanap</p>
+            </div>
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="#kapcsolat" class="cta-button">Kapcsolat</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kiknek ajánljuk -->
+    <section class="alt-bg">
+        <div class="container">
+            <h2>Kiknek ajánljuk a weboldalt?</h2>
+            <p class="section-subtitle"></p>
+            <p class="section-intro">
+                Ideális választás többek között: fodrászoknak, műkörmösöknek, kozmetikusoknak, személyi edzőknek, virágboltoknak, kisvendéglőknek, szerelőknek, asztalosoknak, kertészeknek, masszőröknek, szállásadóknak, autószervizeknek, ingatlanközvetítőknek, fotósoknak vagy bármilyen egyéni vállalkozónak, aki szeretné egyszerűen és látványosan bemutatni tevékenységét.
+            </p>
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="#kapcsolat" class="cta-button">Kapcsolat</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GYIK -->
+    <section>
+        <div class="container">
+            <h2>Gyakran Ismételt Kérdések</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <h3>Milyen weboldalt fejlesztünk?</h3>
+                    <p>Minden weboldal HTML-alapú, gyors és biztonságos megoldás, amely nem igényel bonyolult adminfelületet vagy karbantartást. A kódolásnak köszönhetően a weboldal rendkívül stabil, villámgyorsan betöltődik, és professzionális, modern megjelenést biztosít bármilyen vállalkozás számára.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Megjelenik a weboldal a keresőben?</h3>
+                    <p>Igen. A weboldal keresőbarát módon készül, így a Google idővel automatikusan indexeli, és megjeleníti a keresési találatok között. A havi szolgáltatás részeként folyamatosan biztosítjuk, hogy weboldala technikailag megfeleljen a Google elvárásainak.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Szerkeszthetem én a weboldalt?</h3>
+                    <p>Igen. A weboldalhoz Ön is hozzáférést kap, így módosíthatja a szövegeket, cserélhet képeket, frissítheti az elérhetőségeit. Akik nem szeretnének ezzel foglalkozni, azok számára mi is szívesen elvégezzük a módosításokat.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Mit tegyek, ha módosítani szeretném a weboldalt?</h3>
+                    <p>Amennyiben szeretne új szöveget, képet vagy szolgáltatást feltölteni, elegendő jeleznie ügyfélszolgálatunknak. A módosításokat kedvező, 15.000 forint / óra díjért végezzük el, általában néhány munkanapon belül.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Milyen extra szolgáltatásokat kérhetek?</h3>
+                    <p>Extra szolgáltatásként kérheti a weboldali mérések beállítását (Google Analytics 4), Google Cégem fiók beállítását, hirdetési fiókok beállítását és rendszeres kezelését.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kapcsolat -->
+    <section id="kapcsolat" class="alt-bg">
+        <div class="container">
+            <h2>Kapcsolat</h2>
+            <p style="text-align: center; font-size: 18px; margin-bottom: 48px; color: var(--text-light);">
+                Töltse ki az alábbi űrlapot és munkatársunk 3 munkanapon belül felveszi Önnel a kapcsolatot.
+            </p>
+            <div class="download-form" style="background: #ffffff; max-width: 680px;">
+                <form id="contactForm" onsubmit="handleContact(event)">
+                    <div class="form-group">
+                        <label for="name">Név *</label>
+                        <input type="text" id="name" name="name" required placeholder="Kovács János" style="width: 100%; padding: 14px 16px; border: 2px solid var(--border); border-radius: 8px; font-size: 15px; font-family: inherit; color: var(--text);">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Vállalkozás neve *</label>
+                        <input type="text" id="company" name="company" required placeholder="Kovács Bt." style="width: 100%; padding: 14px 16px; border: 2px solid var(--border); border-radius: 8px; font-size: 15px; font-family: inherit; color: var(--text);">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">E-mail cím *</label>
+                        <input type="email" id="contact-email" name="email" required placeholder="kovacs@email.hu">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefonszám *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+36 30 123 4567" style="width: 100%; padding: 14px 16px; border: 2px solid var(--border); border-radius: 8px; font-size: 15px; font-family: inherit; color: var(--text);">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Üzenet *</label>
+                        <textarea id="message" name="message" required placeholder="Írja le, miben segíthetünk..." rows="5" style="width: 100%; padding: 14px 16px; border: 2px solid var(--border); border-radius: 8px; font-size: 15px; font-family: inherit; color: var(--text); resize: vertical;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="contact-privacy" name="privacy" required>
+                            <label for="contact-privacy">Az adatkezelési nyilatkozatot elfogadom.</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">Küldés</button>
+                </form>
+            </div>
+            <p style="text-align: center; font-size: 18px; margin-top: 48px; color: var(--accent); font-weight: 600;">
+                <a href="mailto:info@magyardigitalizacio.hu" style="color: var(--accent); text-decoration: none;">
+                    info@magyardigitalizacio.hu
+                </a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-emblem">MDP</div>
+            <p>&copy; 2025 Magyar Digitalizációs Program. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Cookie Consent
+        window.addEventListener('load', function() {
+            if (!localStorage.getItem('cookieConsent')) {
+                document.getElementById('cookieConsent').classList.add('show');
+            }
+        });
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieConsent').classList.remove('show');
+            
+            // Enable GTM tracking
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'cookie_consent',
+                'consent_status': 'accepted'
+            });
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'declined');
+            document.getElementById('cookieConsent').classList.remove('show');
+            
+            // Track decline
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'cookie_consent',
+                'consent_status': 'declined'
+            });
+        }
+
+        // Download Form Tracking
+        function handleDownload(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            
+            // Track email submission
+            if (typeof window.dataLayer !== 'undefined') {
+                window.dataLayer.push({
+                    'event': 'form_submission',
+                    'form_type': 'download_form',
+                    'email_provided': email
+                });
+            }
+            
+            // Show success message
+            alert('Köszönjük! A kínálat letöltése hamarosan elindul.');
+            
+            console.log('Email tracked:', email);
+        }
+
+        // Contact Form Tracking
+        function handleContact(event) {
+            event.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                company: document.getElementById('company').value,
+                email: document.getElementById('contact-email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Track contact form submission
+            if (typeof window.dataLayer !== 'undefined') {
+                window.dataLayer.push({
+                    'event': 'form_submission',
+                    'form_type': 'contact_form',
+                    'email_provided': formData.email
+                });
+            }
+            
+            // Show success message
+            alert('Köszönjük üzenetét! Hamarosan felvesszük Önnel a kapcsolatot.');
+            
+            console.log('Contact form tracked:', formData);
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+        }
+
+        // Track download button clicks
+        document.querySelectorAll('.cta-button').forEach(function(button) {
+            button.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#letoltes') {
+                    if (typeof window.dataLayer !== 'undefined') {
+                        window.dataLayer.push({
+                            'event': 'button_click',
+                            'button_type': 'cta_download',
+                            'button_location': 'hero'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
